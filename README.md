@@ -22,18 +22,18 @@ Load тестийг зөвхөн зөвшөөрөгдсөн бай руу хий
 
 ## Ажиллуулах
 ```bash
-brew install k6            # macOS (Ubuntu дээр зааврын дагуу apt-аар)
+brew install k6
 k6 version
 
-k6 run script.js | tee results/run-05vu.txt          # Алхам 2
-bash scripts/run-levels.sh                           # Алхам 3: 5/30/100 VU
-k6 run stages.js | tee results/stages.txt            # Алхам 3: stages
-python3 scripts/make-table.py                        # хүснэгт + санал болгох SLO
+k6 run script.js | tee results/run-05vu.txt
+bash scripts/run-levels.sh
+k6 run stages.js | tee results/stages.txt
+python3 scripts/make-table.py
 
-k6 run -e SLO_P95_MS=<тоо> thresholds.js | tee results/threshold-pass.txt   # Алхам 4
+k6 run -e SLO_P95_MS=<тоо> thresholds.js | tee results/threshold-pass.txt
 k6 run -e SLO_P95_MS=50    thresholds.js | tee results/threshold-fail.txt
 
-node server.js                                       # Алхам 5 (өөр terminal дээр)
+node server.js
 bash scripts/run-levels.sh local http://localhost:3000
 ENDPOINT=/slow bash scripts/run-levels.sh slow http://localhost:3000
 ```
