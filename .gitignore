@@ -1,0 +1,4 @@
+# macOS
+.DS_Store
+# Node (хэрэв ирээдүйд суулгавал)
+node_modules/
